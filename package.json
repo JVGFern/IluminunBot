@@ -4,17 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "start": "node ."
+    "start": "node ."
   },
-  "keywords": [
-    "heroku",
-    "discord.js"
-  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
-    "discord.js": "^12.5.1"
-    
+    "discord.js": "^12.5.1",
+    "random-puppy": "^1.1.0"
   }
 }

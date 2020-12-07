@@ -1,8 +1,10 @@
+
 const Discord = require("discord.js");
+
 const bot = new Discord.Client();
+
+const randomPuppy = require("random-puppy");
 const config = require("./config.json");
-
-
 
 
 bot.on('message', async message => {
@@ -14,9 +16,56 @@ bot.on('message', async message => {
 
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const comando = args.shift().toLowerCase();
-   
+    
+  if(comando === "beijar"){
+  var list = [
+  'https://i.imgur.com/tShYWTc.gif',
+  'https://i.imgur.com/lPx7TJt.gif'
+  ];
+
+  var rand = list[Math.floor(Math.random() * list.length)];
+  let user = message.mentions.users.first() || bot.users.cache.get(args[0]);
   
-  if(comando === "quem") {
+  if(!user){
+    return message.reply('lembre-se de mencionar um usuario gay para beijar!');
+  
+  }
+
+  message.channel.send(`${message.author.username} **acaba de beijar**  ${user.username}! :heart:`,{files:[rand]});
+
+  }
+
+  else if (comando === "limpar"){
+  if(!message.member.hasPermission("MANAGE_MESSAGES"))
+   return message.reply("le falta odio  ou permissão");
+   const deleteCount = parseInt(args[0], 10);
+   if(!deleteCount || deleteCount <1 || deleteCount>100)
+     return message.reply("forneça um numero de até 100 mesagens a ser excluidas");
+   
+    const fetched = await message.channel.messages.fetch({ limit: deleteCount + 1 });
+    message.channel
+      .bulkDelete(fetched)
+      message.channel.send(`${args[0]} mensagens apagadas nessa merda`).then(message => {
+        message.delete({ timeout: 5000 })
+      });
+      
+    
+  }
+
+  else if (comando ===  "meme"){
+    const subReddits = ["MemesBrasil","meme","memes_br","dankmeme"]
+    const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+    const img = await randomPuppy(random);
+
+    const embed = new Discord.MessageEmbed()
+    .setImage(img)
+    .setTitle("Um meme para alegrar o seu dia de merda!")
+    .setURL(`http://reddit.com/${random}`)
+
+    message.channel.send(embed);
+  }
+
+  else if(comando === "quem") {
     await message.channel.send("O PEDRÃO COMEU O CU DE QUEM TA LENDO");
   }
     else if(comando === "r6") {
@@ -33,10 +82,10 @@ bot.on('message', async message => {
   }
   
   else if(comando === "zigao") {
-    await message.channel.send({files:["./Images/zig.jpg"]});
+    await message.channel.send({files:["https://i.imgur.com/b716E2s.jpg"]});
   }
   else if(comando === "gay") {
-    await message.channel.send({files:["./Images/download.jpeg"]});
+    await message.channel.send({files:["https://i.imgur.com/HyHMObe.jpg"]});
   }
   else if(comando === "2020") {
     await message.channel.send({files:["https://i.imgur.com/h7ztFAQ.mp4"]});
@@ -44,6 +93,8 @@ bot.on('message', async message => {
   else if(comando === "help") {
     await message.channel.send("https://github.com/JVGFern/HELP-DO-BOT.git");
   }
+
+
   
   
   
@@ -54,4 +105,4 @@ bot.on('message', async message => {
 
 
 
-bot.login(config.BOT_TOKEN);
+bot.login(config.TOKEN);
