@@ -93,6 +93,9 @@ bot.on('message', async message => {
   else if(comando === "help") {
     await message.channel.send("https://github.com/JVGFern/HELP-DO-BOT.git");
   }
+  else if(comando === "keanu") {
+    await message.channel.send({files:["https://imgur.com/XYBppaQ.mp4"]});
+  }
 
 
   
