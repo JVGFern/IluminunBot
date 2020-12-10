@@ -6,6 +6,23 @@ const bot = new Discord.Client();
 const randomPuppy = require("random-puppy");
 const config = require("./config.json");
 
+bot.on("ready", () => {
+  let activities = [
+      `Utilize ${config.prefix}help para obter ajuda`,
+      `${bot.guilds.cache.size} servidores!`,
+      `${bot.channels.cache.size} canais!`,
+      `${bot.users.cache.size} usuários!`
+    ],
+    i = 0;
+  setInterval( () => bot.user.setActivity(`${activities[i++ % activities.length]}`, {
+        type: "WATCHING"
+      }), 1000 * 60); 
+  bot.user
+      .setStatus("dnd")
+      .catch(console.error);
+console.log("Estou Online!")
+});
+
 
 bot.on('message', async message => {
      
@@ -53,7 +70,7 @@ bot.on('message', async message => {
   }
 
   else if (comando ===  "meme"){
-    const subReddits = ["MemesBrasil","meme","memes_br","dankmeme"]
+    const subReddits = ["meme","dankmeme"]
     const random = subReddits[Math.floor(Math.random() * subReddits.length)];
     const img = await randomPuppy(random);
 
@@ -94,13 +111,9 @@ bot.on('message', async message => {
     await message.channel.send("https://github.com/JVGFern/HELP-DO-BOT.git");
   }
   else if(comando === "keanu") {
-    await message.channel.send({files:["https://imgur.com/XYBppaQ.mp4"]});
-  }
-
-
   
-  
-  
+    await message.channel.send({files:['https://imgur.com/XYBppaQ.mp4']});
+  }  
   
 });
 
