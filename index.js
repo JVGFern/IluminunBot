@@ -1,10 +1,12 @@
 
 const Discord = require("discord.js");
-
+const mongoose = require('mongoose');
 const bot = new Discord.Client();
 
 const randomPuppy = require("random-puppy");
 const config = require("./config.json");
+
+mongoose.connect('mongodb+srv://JoViGoFern:MasterHome@botjs.1kttm.mongodb.net/Bot?retryWrites=true&w=majority', {useNewUrlParser: true ,  useUnifiedTopology: true });
 
 bot.on("ready", () => {
   let activities = [
@@ -114,6 +116,15 @@ bot.on('message', async message => {
   
     await message.channel.send({files:['https://imgur.com/XYBppaQ.mp4']});
   }  
+  else if(comando === "spamar") {
+    var spam = parseInt(args[0], 10);
+    let member = message.mentions.members.first(); 
+    for(var member1 = 0; member1 < spam; member1++){
+    await message.channel.send(`${member.user}`);
+    
+  }
+  }
+
   
 });
 
