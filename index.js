@@ -8,6 +8,9 @@ const app = express();
 
 const config = require("./config.json");
 
+bot.commands = new Discord.Collection();
+bot.queues = new Map();
+
 mongoose.connect('mongodb+srv://JoViGoFern:MasterHome@botjs.1kttm.mongodb.net/Bot?retryWrites=true&w=majority',
  {useNewUrlParser: true ,  
  useUnifiedTopology: true });

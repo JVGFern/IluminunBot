@@ -12,7 +12,10 @@
     "@discordjs/opus": "^0.3.3",
     "discord.js": "^12.5.1",
     "express": "^4.17.1",
+    "ffmpeg-static": "^4.2.7",
     "mongoose": "^5.11.8",
-    "random-puppy": "^1.1.0"
+    "random-puppy": "^1.1.0",
+    "yt-search": "^2.5.1",
+    "ytdl-core": "^4.2.1"
   }
 }
