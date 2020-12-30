@@ -2,7 +2,12 @@ const Discord = require("discord.js");
 const ytSearch = require("yt-search");
 const ytdl = require("ytdl-core");
 
-module.exports.run = async(bot, message, args ) => {
+module.exports = {
+name: "play",
+category: "musica",
+
+
+run: async(bot, message, args ) => {
     const voiceChannel = message.member.voice.channel;
  
     if (!voiceChannel) return message.channel.send('You need to be in a channel to execute this command!');
@@ -59,4 +64,5 @@ module.exports.run = async(bot, message, args ) => {
     } else {
         message.channel.send('No video results found');
     }
+ }
 }

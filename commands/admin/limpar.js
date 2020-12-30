@@ -1,6 +1,11 @@
 const Discord = require("discord.js");
 
-module.exports.run = async(bot, message, args ) => {
+module.exports = {
+name: "limpar",
+category: "admin",
+
+
+run: async(bot, message, args ) => {
     if(!message.member.hasPermission("MANAGE_MESSAGES"))
     return message.reply("le falta odio  ou permissão");
     const deleteCount = parseInt(args[0], 10);
@@ -15,4 +20,5 @@ module.exports.run = async(bot, message, args ) => {
        });
     
 
+}
 }

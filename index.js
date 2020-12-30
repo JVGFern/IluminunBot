@@ -1,7 +1,10 @@
 
 const Discord = require("discord.js");
-const mongoose = require('mongoose');
 const bot = new Discord.Client();
+
+const mongoose = require('mongoose');
+const fs = require('fs');
+
 
 const express = require("express");
 const app = express();
@@ -10,10 +13,13 @@ const config = require("./config.json");
 
 bot.commands = new Discord.Collection();
 bot.queues = new Map();
+bot.aliases = new Discord.Collection();
 
-mongoose.connect('mongodb+srv://JoViGoFern:MasterHome@botjs.1kttm.mongodb.net/Bot?retryWrites=true&w=majority',
- {useNewUrlParser: true ,  
- useUnifiedTopology: true });
+bot.categories = fs.readdirSync("./commands/");
+
+["command"].forEach(handler => {
+  require(`./handlers/${handler}`)(bot);
+});
 
 bot.on("ready", () => {
   let activities = [
@@ -40,10 +46,14 @@ bot.on('message', async message => {
     if(!message.content.startsWith(config.prefix)) return;
 
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-    const comando = args.shift().toLowerCase();
-   
-    let comandoFile = require(`./commands/${comando}.js` );
-    delete require.cache[require.resolve(`./commands/${comando}.js`)];
-    return comandoFile.run(bot, message, args);  
+    const cmd = args.shift().toLowerCase();
+    
+    if (cmd.length === 0) return;
+    
+    let command = bot.commands.get(cmd);
+    if (!command) command = bot.commands.get(bot.aliases.get(cmd));
+
+    if (command) 
+        command.run(bot, message, args);
 });
 bot.login(config.TOKEN);

@@ -1,6 +1,11 @@
 const Discord = require("discord.js");
 
-module.exports.run = async(bot, message, args ) => {
+module.exports = {
+name: "beijar",
+category: "fun",
+
+
+run: async(bot, message, args ) => {
     var list = [
         'https://i.imgur.com/tShYWTc.gif',
         'https://i.imgur.com/lPx7TJt.gif'
@@ -17,3 +22,4 @@ module.exports.run = async(bot, message, args ) => {
         message.channel.send(`${message.author.username} **acaba de beijar**  ${user.username}! :heart:`,{files:[rand]});
       
         }
+      }
