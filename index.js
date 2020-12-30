@@ -17,8 +17,8 @@ bot.aliases = new Discord.Collection();
 
 bot.categories = fs.readdirSync("./commands/");
 
-["command"].forEach(handler => {
-  require(`./handlers/${handler}`)(bot);
+["command"].forEach(config => {
+  require(`./configs/${config}`)(bot);
 });
 
 bot.on("ready", () => {
