@@ -5,10 +5,6 @@ const bot = new Discord.Client();
 const mongoose = require('mongoose');
 const fs = require('fs');
 
-
-const express = require("express");
-const app = express();
-
 const config = require("./config.json");
 
 bot.commands = new Discord.Collection();
@@ -56,4 +52,5 @@ bot.on('message', async message => {
     if (command) 
         command.run(bot, message, args);
 });
+
 bot.login(config.TOKEN);
