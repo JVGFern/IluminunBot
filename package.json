@@ -14,11 +14,12 @@
     "discord.js": "^12.5.1",
     "express": "^4.17.1",
     "ffmpeg-static": "^4.2.7",
+    "figlet": "^1.5.0",
     "fs": "^0.0.1-security",
     "got": "^6.7.1",
+    "imgur": "^0.3.1",
     "mongoose": "^5.11.8",
     "ms": "^2.1.2",
-    "random-puppy": "^1.1.0",
     "weather-js": "^2.0.0",
     "yt-search": "^2.5.1",
     "ytdl-core": "^4.3.0"
