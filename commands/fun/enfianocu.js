@@ -13,7 +13,7 @@ run: async(bot, message, args ) => {
           setTimeout(function(){connection.disconnect(); }, 5000);
           
       } else {
-        message.reply('Você precissa estar em um canal de voz');
+        message.reply('Você precisa estar em um canal de voz');
       }
  }
 }
