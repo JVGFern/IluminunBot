@@ -1,4 +1,5 @@
 {
-    "TOKEN":"NzgyMzUxMzQyNDMzMzM3MzQ0.X8K7dw.j7Q3xigkcthwMHsbqEMiCLoLvwI",
-    "prefix": "#"
+    "TOKEN":"NzgyMzUxMzQyNDMzMzM3MzQ0.X8K7dw.Cx97d3SBxEacpI1Q6bd22XPWcQ4",
+    "prefix": "#",
+    "mongoDB": "mongodb+srv://Market:MasterHome@cluster0.nota9.mongodb.net/bot?retryWrites=true&w=majority"
 }   

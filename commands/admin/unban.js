@@ -26,7 +26,7 @@ const success = new MessageEmbed()
   .setDescription(`Reason: ${reason}`)
   .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
   .setColor('#77dd77')
-  .setFooter('Permissions Granted')
+  .setFooter(`Permissions Granted`)
   .setTimestamp()
 
 message.channel.send(success)

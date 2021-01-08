@@ -49,7 +49,7 @@ if (message.author.id == member || !member.bannable) {
     .setDescription(`Reason: ${reason}`)
     .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
     .setColor('#77dd77')
-    .setFooter('Permissions Granted')
+    .setFooter(`Permissions Granted, ID:${member.user.id}`)
     .setTimestamp()
 
   message.channel.send(success)
