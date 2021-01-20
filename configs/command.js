@@ -8,6 +8,7 @@ module.exports = (bot) => {
         for (let file of commands) {
             let cmd = require(`../commands/${dir}/${file}`);
             bot.commands.set(cmd.name, cmd); 
+        
      }
 });
 };
