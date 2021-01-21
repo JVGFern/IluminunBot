@@ -8,8 +8,6 @@ const config = require("./config.json");
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
-
-
 bot.queues = new Map();
 
 
@@ -22,9 +20,12 @@ bot.queues = new Map();
   require(`./configs/${config}`)(bot);
 });
 
+
+
 mongoose.connect(config.mongoDB, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false
 }).then(() => {
 
   console.log("Connected to the Mongodb database.");

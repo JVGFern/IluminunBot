@@ -126,7 +126,7 @@ run: async(bot, message, args ) => {
             { name: `${prefix}ban [user] <question> `, value: 'Bane um membro'},
             { name: `${prefix}kick [user] <question> `, value: 'Kick um membro'},
             { name: `${prefix}limpar <0/100> `, value: 'exclui até 100 messagens do chat '},
-            { name: `${prefix}prefix `, value: 'define o prefixo'},
+            { name: `${prefix}set-prefix `, value: 'define o prefixo'},
             { name: `${prefix}unban [user/ID] <question> `, value: 'Desbane um membro'},
             
     )

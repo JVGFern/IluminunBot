@@ -1,7 +1,7 @@
-const prefixModel = require("./../../models/prefix")
+const prefixModel = require("../../models/prefix")
 
 module.exports = {
-    name: "prefix",
+    name: "set-prefix",
     category: "admin",
    
     run: async(bot, message, args ) => {
