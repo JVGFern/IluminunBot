@@ -1,5 +1,4 @@
 ## :page_with_curl: Sobre: Esse repositorio é um bot js para o discord onde possui varias funcionalidades
-.
 
 
 ## :books: Requisitos
@@ -13,8 +12,16 @@
   $ git clone https://github.com/JVGFern/bot.git
   # Entrar no diretório:
   $ cd bot
+  # Instalar as dependencias
   $ npm install
-  # Colocar seu token no arquivo Config.json e depois
-  $ node .
+  
 ```
 
+## :rocket: Configurando o BOT
+
+- Para começar entre no site do [**Dicord Developer**](https://discord.com/developers/applications
+- Agora log com sua conta do discord e crie uma aplicação 
+- Ache a pagina que esta escrita BOT e  clique em copiar token 
+- Colocar seu token no arquivo Config.json
+- E rodar no terminal: node .
+ 
