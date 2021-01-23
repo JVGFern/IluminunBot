@@ -24,4 +24,5 @@
 - Ache a pagina que esta escrita BOT e  clique em copiar token 
 - Colocar seu token no arquivo Config.json
 - E rodar no terminal: node .
+- TESTE
  
