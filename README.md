@@ -19,7 +19,7 @@
 
 ## :rocket: Configurando o BOT
 
-- Para começar entre no site do [**Dicord Developer**](https://discord.com/developers/applications
+- Para começar entre no site do [**Dicord Developer**](https://discord.com/developers/applications)
 - Agora log com sua conta do discord e crie uma aplicação 
 - Ache a pagina que esta escrita BOT e  clique em copiar token 
 - Colocar seu token no arquivo Config.json
