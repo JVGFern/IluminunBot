@@ -16,7 +16,7 @@ module.exports = async (bot,member) => {
       .setDescription(`${member} (**${member.user.tag}**)`)
       .setTimestamp()
       .setColor('RANDOM')
-      .setImage('./wel.png')
+      .setImage('https://i.imgur.com/VYiPRRf.png')
   
     channel.send(embedAdd);
    
