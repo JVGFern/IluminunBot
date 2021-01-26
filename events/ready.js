@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 module.exports = async (bot) => {
  
     let activities = [
-        `Utilize help para obter ajuda`,
+        `Para saber mais apenas me marque`,
         `${bot.guilds.cache.size} servidores!`,
         `${bot.channels.cache.size} canais!`,
         `${bot.users.cache.size} usuários!`
@@ -15,6 +15,8 @@ module.exports = async (bot) => {
         .setStatus("dnd")
         .catch(console.error);
   console.log("Estou Online!")
+  
+  
   }
 
   

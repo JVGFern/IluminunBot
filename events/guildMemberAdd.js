@@ -15,7 +15,7 @@ module.exports = async (bot,member) => {
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
       .setDescription(`${member} (**${member.user.tag}**)`)
       .setTimestamp()
-      .setColor('RANDOM')
+      .setColor('YELLOW')
       .setImage('https://i.imgur.com/VYiPRRf.png')
   
     channel.send(embedAdd);
