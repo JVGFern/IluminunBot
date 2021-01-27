@@ -77,6 +77,7 @@ run: async(bot, message, args ) => {
             .addFields(
             { name: `${prefix}help `, value: 'Suas duvidas resolvidas'},
             { name: `${prefix}tempo <city> <state>`, value: 'Veja o tempo em sua cidade ou estado'},
+            { name: `${prefix}bug-report <message>  `, value: 'Reporte os bugs para o criador do bot'},
            
     )
             ,
