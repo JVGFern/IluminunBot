@@ -65,7 +65,7 @@ module.exports = async (bot, message, guild) => {
         { name: "Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version}, Mongoose: V${mongoose.version}` + "```", inline: false },
         { name: "Uptime", value:  "```" + uptime + "```", inline: false },
       )
-      .setThumbnail(bot.user.displayAvatarURL())
+      .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
       .setColor('FF007F')
   
@@ -112,19 +112,13 @@ module.exports = async (bot, message, guild) => {
         { name: "Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version}, Mongoose: V${mongoose.version}` + "```", inline: false },
         { name: "Uptime", value:  "```" + uptime + "```", inline: false },
       )
-      .setThumbnail(bot.user.displayAvatarURL())
+      .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
       .setColor('FF007F')
   
       message.channel.send(embedBot);
- }  
+     }  
    
    }
-
-
-  
-  
-
-    
 
 };
