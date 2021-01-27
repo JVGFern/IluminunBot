@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-module.exports = async (bot) => {
+module.exports = async (bot,message) => {
  
     let activities = [
         `Para saber mais apenas me marque`,
@@ -15,6 +15,8 @@ module.exports = async (bot) => {
         .setStatus("dnd")
         .catch(console.error);
   console.log("Estou Online!")
+
+
   
   
   }
