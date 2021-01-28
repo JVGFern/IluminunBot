@@ -2,9 +2,8 @@ const Discord = require("discord.js");
 module.exports = async (bot,message) => {
  
     let activities = [
-        `saber mais, me marque`,
+        `Duvidas?, me marque`,
         `${bot.guilds.cache.size} servidores!`,
-        `${bot.channels.cache.size} canais!`,
         `${bot.users.cache.size} usuários!`
       ],
       i = 0;

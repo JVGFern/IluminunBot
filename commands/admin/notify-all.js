@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
 name: "notify-all",
 category: "admin",
-permissions: ['BAN_MEMBERS'],
+permissions: ['ADMINISTRATOR'],
 
 
 run: async(bot, message, args ) => {

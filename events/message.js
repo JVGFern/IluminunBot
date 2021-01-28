@@ -29,7 +29,35 @@ module.exports = async (bot, message, guild) => {
   
   if(data) {
     const prefix = data.Prefix;
-
+    let uptime = convertMs(message.client.uptime);
+    let ramUsage = (process.memoryUsage().heapTotal / 1024 / 1024).toFixed(2) + "MB";
+    const memberBot = message.mentions.users.first();
+    if(typeof memberBot === "undefined") return;
+    const botid = memberBot.bot
+  
+  
+    if(botid === true && memberBot.id === '782351342433337344') {
+      
+      const embedBot = new Discord.MessageEmbed ()
+      
+        .setTitle(`Ola sou o Illumination`)
+        .setDescription(`Se você me mencionou é porque esqueceu o prefixo ou é a minha primeira vez nesse Servidor`)
+        .addFields(
+          { name: "Prefixo", value:  "```" + prefix + "```", inline: true },
+          { name: "Guilds", value: "```" + bot.guilds.cache.size + "```", inline: true},
+          { name: "Users", value:  "```" + bot.users.cache.size + "```", inline: true },
+          { name: "RAM usage", value:  "```" + ramUsage + "```", inline: true },
+          { name: "API Latency", value:  "```" + bot.ws.ping + "```", inline: true },
+          { name: "Para saber os comandos ou obeter ajuda use:", value:  "```" + `${prefix}help` + "```", inline: false},
+          { name: "Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version}, Mongoose: V${mongoose.version}` + "```", inline: false },
+          { name: "Uptime", value:  "```" + uptime + "```", inline: false },
+        )
+        .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
+        .setTimestamp()
+        .setColor('FF007F')
+    
+        message.channel.send(embedBot);
+     }
    
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
@@ -41,53 +69,13 @@ module.exports = async (bot, message, guild) => {
     if (command) 
         command.run(bot, message, args);
     
-    let uptime = convertMs(message.client.uptime);
-    let ramUsage = (process.memoryUsage().heapTotal / 1024 / 1024).toFixed(2) + "MB";
-    const memberBot = message.mentions.users.first();
-    if(typeof memberBot === "undefined") return;
-    const botid = memberBot.bot
-
-
-    if(botid === true && memberBot.id === '782351342433337344') {
-    
-    const embedBot = new Discord.MessageEmbed ()
-    
-      .setTitle(`Ola sou o Illumination`)
-      .setDescription(`Se você me mencionou é porque esqueceu o prefixo ou é a minha primeira vez nesse Servidor`)
-      .addFields(
-        { name: "Prefixo", value:  "```" + prefix + "```", inline: true },
-        { name: "Channels", value:  "```" + bot.channels.cache.size + "```", inline: true },
-        { name: "Guilds", value: "```" + bot.guilds.cache.size + "```", inline: true},
-        { name: "Users", value:  "```" + bot.users.cache.size + "```", inline: true },
-        { name: "RAM usage", value:  "```" + ramUsage + "```", inline: true },
-        { name: "API Latency", value:  "```" + bot.ws.ping + "```", inline: true },
-        { name: "Para saber os comandos ou obeter ajuda use:", value:  "```" + `${prefix}help` + "```", inline: false},
-        { name: "Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version}, Mongoose: V${mongoose.version}` + "```", inline: false },
-        { name: "Uptime", value:  "```" + uptime + "```", inline: false },
-      )
-      .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
-      .setTimestamp()
-      .setColor('FF007F')
-  
-      message.channel.send(embedBot);
-   }
+ 
    
 
   }
   else if (!data) {
 
     const prefix = "#";
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-
-    if (cmd.length === 0) return;
-    let command = bot.commands.get(cmd);
-    if (!command) command = bot.commands.get(bot.aliases.get(cmd));
-
-    if (command) 
-        command.run(bot, message, args);
-    
-
     let uptime = convertMs(message.client.uptime);
     let ramUsage = (process.memoryUsage().heapTotal / 1024 / 1024).toFixed(2) + "MB";
     const memberBot = message.mentions.users.first();
@@ -95,15 +83,14 @@ module.exports = async (bot, message, guild) => {
     const botid = memberBot.bot
 
 
-    if(botid === true && memberBot.id === '782351342433337344') {
+  if(botid === true && memberBot.id === '782351342433337344') {
     
-    const embedBot = new Discord.MessageEmbed ()
+  const embedBot = new Discord.MessageEmbed ()
     
       .setTitle(`Ola sou o Illumination`)
       .setDescription(`Se você me mencionou é porque esqueceu o prefixo ou é a minha primeira vez nesse Servidor`)
       .addFields(
         { name: "Prefixo", value:  "```" + prefix + "```", inline: true },
-        { name: "Channels", value:  "```" + bot.channels.cache.size + "```", inline: true },
         { name: "Guilds", value: "```" + bot.guilds.cache.size + "```", inline: true},
         { name: "Users", value:  "```" + bot.users.cache.size + "```", inline: true },
         { name: "RAM usage", value:  "```" + ramUsage + "```", inline: true },
@@ -118,6 +105,18 @@ module.exports = async (bot, message, guild) => {
   
       message.channel.send(embedBot);
      }  
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const cmd = args.shift().toLowerCase();
+
+    if (cmd.length === 0) return;
+    let command = bot.commands.get(cmd);
+    if (!command) command = bot.commands.get(bot.aliases.get(cmd));
+
+    if (command) 
+        command.run(bot, message, args);
+    
+
+  
    
    }
 
