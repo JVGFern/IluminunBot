@@ -9,7 +9,7 @@ run: async(bot, message, args ) => {
     var list = [
         "https://media.giphy.com/media/arbHBoiUWUgmc/giphy.gif",
         "https://media.giphy.com/media/yo3TC0yeHd53G/giphy.gif",
-        
+  
         ];
       
         var rand = list[Math.floor(Math.random() * list.length)];
