@@ -32,7 +32,7 @@ run: async(bot, message, args ) => {
     let memberMessageSend = bot.users.cache.get(memberMessage)
     const reported = new MessageEmbed()
       .setTitle(`Os bugs foram reportados com sucesso`)
-      .setDescription(`Muito Obrigado ${memberMessageSend.username} por reportar, com gratidão ILLUMINATION`)
+      .setDescription(`Muito Obrigado  ${memberMessageSend.username}  por reportar, com gratidão ILLUMINATION`)
       .setTimestamp()
       .setColor('FF007F')
       .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))

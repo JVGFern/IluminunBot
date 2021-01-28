@@ -1,5 +1,6 @@
 {
     "TOKEN":"NzgyMzUxMzQyNDMzMzM3MzQ0.X8K7dw.Cx97d3SBxEacpI1Q6bd22XPWcQ4",
     "prefix": "#",
-    "mongoDB": "mongodb+srv://Market:MasterHome@cluster0.nota9.mongodb.net/bot?retryWrites=true&w=majority"
+    "mongoDB": "mongodb+srv://Market:MasterHome@cluster0.nota9.mongodb.net/bot?retryWrites=true&w=majority",
+    "riotAPIKey":"RGAPI-0c9dcf4c-88ef-4385-9d4c-4cb4afdee6fb"
 }   
