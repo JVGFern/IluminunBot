@@ -8,7 +8,8 @@ permissions: ['ADMINISTRATOR'],
 
 run: async(bot, message, args ) => {
 
-
+if(!message.member.hasPermission("ADMINISTRATOR'"))
+return message.reply("le falta odio  ou permissão");
 if(!args.length) return message.reply('You need to specify a message');
 if(message.mentions.users.first()) return message.reply('You cannot mention a user in a notificaiton');
 

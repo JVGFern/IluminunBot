@@ -8,7 +8,8 @@ requiredRoles: [],
 
 
 run: async(bot, message, args ) => {
-
+if(!message.member.hasPermission("BAN_MEMBERS"))
+return message.reply("le falta odio  ou permissão");
 let member = message.mentions.members.first()
 if (message.author.id == member || !member.bannable) {
     const unable = new MessageEmbed()

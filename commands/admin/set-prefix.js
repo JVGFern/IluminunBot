@@ -5,7 +5,8 @@ module.exports = {
     category: "admin",
    
     run: async(bot, message, args ) => {
-
+        if(!message.member.hasPermission("MANAGE_MESSAGES"))
+        return message.reply("le falta odio  ou permissão");
         const data = await prefixModel.findOne({
             GuildID: message.guild.id
         });
