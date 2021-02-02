@@ -34,10 +34,10 @@ run: async(bot, message, args ) => {
         newUser.save().catch(err => console.log(err));
         
         const warnEmbed = new MessageEmbed()
-        .setTitle(`warning: ${member.user.tag}`)
+        .setTitle(`warning: **${member.user.tag}**`)
         .setDescription(`Reason: ${reason}`)
         .addFields(
-         { name: "warn", value:  "```" +  newUser.warns + "```", inline: true })
+         { name: "warn", value: newUser.warns,  inline: true })
         .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
         .setColor('#77dd77')
         .setFooter(`Permissions Granted, ID:${member.user.id}`)
@@ -49,16 +49,31 @@ run: async(bot, message, args ) => {
         user.save().catch(err =>console.log(err));
 
         const warnEmbedr = new MessageEmbed()
-        .setTitle(`warning: ${member.user.tag}`)
+        .setTitle(`warning: **${member.user.tag}**`)
         .setDescription(`Reason: ${reason}`)
         .addFields(
-            { name: "warn", value:  "```" +  user.warns + "```", inline: true })
+            { name: "warn", value:  user.warns, inline: true })
         .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
         .setColor('#77dd77')
         .setFooter(`Permissions Granted, ID:${member.user.id}`)
         .setTimestamp()
         message.channel.send(warnEmbedr)
+
+        if(user.warns === 3){
+            await member.ban({ reason: reason })
+            const success = new MessageEmbed()
+           .setTitle(`Successfully Banned: **${member.user.tag}**`)
+           .setDescription(`Reason: Tomou 3 avisos`)
+           .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
+           .setColor('#77dd77')
+           .setFooter(`Permissions Granted, ID:${member.user.id}`)
+           .setTimestamp()
+           message.channel.send(success)
+        }
+
         return
+
+       
     }
     );
          

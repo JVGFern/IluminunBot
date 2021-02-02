@@ -46,7 +46,7 @@ if (message.author.id == member || !member.bannable) {
 
   await member.ban({ reason: reason })
   const success = new MessageEmbed()
-    .setTitle(`Successfully Banned: ${member.user.tag}`)
+    .setTitle(`Successfully Banned: **${member.user.tag}**`)
     .setDescription(`Reason: ${reason}`)
     .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
     .setColor('#77dd77')

@@ -30,7 +30,7 @@ run: async(bot, message, args ) => {
     const { guild } = message
     const { name } = guild
     const dm = new MessageEmbed()
-      .setTitle(`You were kicked from ${name}!`)
+      .setTitle(`You were kicked from **${member.user.tag}**!`)
       .setDescription(`Don't worry, this is just a kick! You can simply rejoin from an invite link.`)
       .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
       .setColor('#808080')
