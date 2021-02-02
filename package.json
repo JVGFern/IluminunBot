@@ -23,6 +23,7 @@
     "mongoose": "^5.11.8",
     "ms": "^2.1.2",
     "path": "^0.12.7",
+    "r6statsapi": "^1.0.3",
     "random-puppy": "^1.1.0",
     "weather-js": "^2.0.0"
   }
