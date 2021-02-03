@@ -35,9 +35,7 @@ run: async(bot, message, args ) => {
         
         const warnEmbed = new MessageEmbed()
         .setTitle(`warning: **${member.user.tag}**`)
-        .setDescription(`Reason: ${reason}`)
-        .addFields(
-         { name: "warn", value: newUser.warns,  inline: true })
+        .setDescription('**Reason:** ``'+`${reason}`+'``' + "\n" + '**Warn:** ``'+`${newUser.warns}`+'``' )
         .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
         .setColor('#77dd77')
         .setFooter(`Permissions Granted, ID:${member.user.id}`)
@@ -50,9 +48,7 @@ run: async(bot, message, args ) => {
 
         const warnEmbedr = new MessageEmbed()
         .setTitle(`warning: **${member.user.tag}**`)
-        .setDescription(`Reason: ${reason}`)
-        .addFields(
-            { name: "warn", value:  user.warns, inline: true })
+        .setDescription('**Reason:** ``'+`${reason}`+'``' + "\n" + '**Warn:** ``'+`${user.warns}`+'``' )
         .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
         .setColor('#77dd77')
         .setFooter(`Permissions Granted, ID:${member.user.id}`)
