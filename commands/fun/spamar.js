@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
 name: "spamar",
 category: "fun",
+aliases: ['sp'],
 
 run: async(bot, message, args ) => {
     var spam = parseInt(args[0], 10);

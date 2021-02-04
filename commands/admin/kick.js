@@ -5,6 +5,7 @@ module.exports = {
 name: "kick",
 category: "admin",
 permissions: ['KICK_MEMBERS'],
+aliases: ['k'],
 requiredRoles: [],
 
 

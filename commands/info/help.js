@@ -6,6 +6,7 @@ const { Menu } = require('discord.js-menu');
 module.exports = {
 name: "help",
 category: "info",
+aliases: ['h'],
 
 
 run: async(bot, message, args ) => {

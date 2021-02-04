@@ -6,6 +6,7 @@ module.exports = {
     name: "warn",
     category: "admin",
     permissions: ['BAN_MEMBERS'],
+    aliases: ['w'],
     requiredRoles: [],
 
 
