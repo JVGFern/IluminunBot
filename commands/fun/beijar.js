@@ -20,10 +20,13 @@ run: async(bot, message, args ) => {
         }
         const embed = new Discord.MessageEmbed()
         .setTitle(`${message.author.username} **acaba de beijar**  ${user.username}! `)
+        .addField('MatchMaking Result', (`
+              Their love-score is ${Math.floor(Math.random() * 100)}%! 💘
+            `))
         .setColor('RANDOM')
         .setImage(rand);
       
-        message.channel.send(embed);
+        message.channel.send(`<@${message.author.id}> 💗 <@${user.id}>  `,embed);
       
         }
       }

@@ -18,7 +18,7 @@ module.exports = async (bot,member) => {
       .setColor('YELLOW')
       .setImage('https://i.imgur.com/VYiPRRf.png')
   
-    channel.send(embedAdd);
+    channel.send(`<@${member.user.id}>`,embedAdd);
    
     
   

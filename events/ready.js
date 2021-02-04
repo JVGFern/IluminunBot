@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+
 module.exports = async (bot,message) => {
  
     let activities = [
@@ -13,6 +14,8 @@ module.exports = async (bot,message) => {
     bot.user
         .setStatus("dnd")
         .catch(console.error);
+  
+     
   console.log("Estou Online!")
 
 
