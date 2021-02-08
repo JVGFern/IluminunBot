@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "dev": "nodemon index.js"
+    
   },
   "author": "",
   "license": "ISC",
@@ -26,5 +28,8 @@
     "r6statsapi": "^1.0.3",
     "random-puppy": "^1.1.0",
     "weather-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

@@ -14,7 +14,7 @@ module.exports = async (bot, member) => {
     .setTitle('Member Left')
       .setAuthor(`${member.guild.name}`, member.guild.iconURL({ dynamic: true }))
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-      .setDescription(`${member} (**${member.user.tag}**)`)
+      .setDescription(`<@${member.user.id}>  (**${member.user.tag}**)`)
       .setTimestamp()
       .setColor('RANDOM');
   
