@@ -69,7 +69,7 @@ module.exports = {
         name: 'Stats Operators R6',
         content: new MessageEmbed()
           .setColor("RANDOM")
-          .setTitle(`your Operators stats in r6  ${message.author.username}`)
+          .setTitle(`Your Operators ${opName.name} stats in r6  ${message.author.username}`)
           .setDescription(`**Username R6:** ${userStats.username} ` + "\n" +
             `**Level R6:** ${userStats.progression.level} `)
           .setThumbnail(opName.badge_image)
