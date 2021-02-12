@@ -9,14 +9,21 @@ module.exports = {
 
   run: async (bot, message, args) => {
 
-    let user = args.slice(0);
-    let plataform = args.slice(1);
-
+    let user = args[0]
+    let plataform = args[1]
+    let operator = args[2]
+    
+    
     let userStats = await API.getGenericStats(user, plataform, 'all');
     let userStatsOP = await API.getOperatorStats(user, plataform, 'all');
-
-    console.log()
     
+    
+   
+ 
+    if(operator){
+      
+    const opCon= operator[0].toUpperCase() + operator.substr(1);
+    let opName = userStatsOP.operators.find(op => op.name === opCon)
     let helpMenu = new Menu(message.channel, message.author.id, [
       {
        
@@ -65,98 +72,27 @@ module.exports = {
           .setTitle(`your Operators stats in r6  ${message.author.username}`)
           .setDescription(`**Username R6:** ${userStats.username} ` + "\n" +
             `**Level R6:** ${userStats.progression.level} `)
-          .setThumbnail(userStats.avatar_url_256)
+          .setThumbnail(opName.badge_image)
           .addFields(
-            { name: "Para seguir enfrente e para ver os seus Operators stats ", value: '▶', inline: true },
-
+            { name: "kills", value: "```" + opName.kills + "```", inline: true },
+            { name: "deaths", value: "```" + opName.deaths + "```", inline: true },
+            { name: "headshots", value: "```" + opName.headshots + "```", inline: true },
+            { name: "wins", value: "```" + opName.wins+ "```", inline: true },
+            { name: "losses", value: "```" + opName.losses + "```", inline: true },
+            { name: "wl", value: "```" + opName.wl + "```", inline: true },
+            { name: "kd", value: "```" + opName.kd+ "```", inline: true },
           )
 
 
-        ,
-        reactions: {
-          '⏪': "first",
-          '1️⃣': "previous",
-          '▶': "next", 
-        }
-      },
-      {
-        name: 'Mute Stats R6',
-        content:new MessageEmbed()
-              .setColor("RANDOM")
-              .setTitle(`Mute Stats, ${userStatsOP.operators[0].role} operator`)
-              .setDescription(`**Username R6:** ${userStats.username} ` + "\n" +
-                `**Level R6:** ${userStats.progression.level} `)
-              .setThumbnail('https://cdn.r6stats.com/badges/mute_badge.png')
-              .addFields(
-                { name: "kills", value: "```" + userStatsOP.operators[0].kills + "```", inline: true },
-                { name: "deaths", value: "```" + userStatsOP.operators[0].deaths + "```", inline: true },
-                { name: "kd", value: "```" + userStatsOP.operators[0].kd + "```", inline: true },
-                { name: "wins", value: "```" + userStatsOP.operators[0].wins + "```", inline: true },
-                { name: "losses", value: "```" + userStatsOP.operators[0].losses + "```", inline: true },
-                { name: "wl", value: "```" + userStatsOP.operators[0].wl + "```", inline: true },
-                { name: "headshots", value: "```" + userStatsOP.operators[0].headshots+ "```", inline: true },
-              )
-
 
         ,
         reactions: {
-          '⏪': "first",
-          '◀': 'previous', 
-          '▶': "next", 
+          '⏪': "previous",
+          
         }
       },
-      {
-        name: 'Smoke Stats R6',
-        content:new MessageEmbed()
-              .setColor("RANDOM")
-              .setTitle(`Smoke Stats , ${userStatsOP.operators[1].role} operator`)
-              .setDescription(`**Username R6:** ${userStats.username} ` + "\n" +
-                `**Level R6:** ${userStats.progression.level} `)
-              .setThumbnail('https://cdn.r6stats.com/badges/smoke_badge.png')
-              .addFields(
-                { name: "kills", value: "```" + userStatsOP.operators[1].kills + "```", inline: true },
-                { name: "deaths", value: "```" + userStatsOP.operators[1].deaths + "```", inline: true },
-                { name: "kd", value: "```" + userStatsOP.operators[1].kd + "```", inline: true },
-                { name: "wins", value: "```" + userStatsOP.operators[1].wins + "```", inline: true },
-                { name: "losses", value: "```" + userStatsOP.operators[1].losses + "```", inline: true },
-                { name: "wl", value: "```" + userStatsOP.operators[1].wl + "```", inline: true },
-                { name: "headshots", value: "```" + userStatsOP.operators[1].headshots+ "```", inline: true },
-              )
+     
 
-
-        ,
-        reactions: {
-          '⏪': "first",
-          '◀': 'previous', 
-          '▶': "next", 
-        }
-      },
-      {
-        name: 'Sledge Stats R6',
-        content:new MessageEmbed()
-              .setColor("RANDOM")
-              .setTitle(`Sledge  Stats , ${userStatsOP.operators[2].role} operator`)
-              .setDescription(`**Username R6:** ${userStats.username} ` + "\n" +
-                `**Level R6:** ${userStats.progression.level} `)
-              .setThumbnail('https://cdn.r6stats.com/badges/sledge_badge.png')
-              .addFields(
-                { name: "kills", value: "```" + userStatsOP.operators[2].kills + "```", inline: true },
-                { name: "deaths", value: "```" + userStatsOP.operators[2].deaths + "```", inline: true },
-                { name: "kd", value: "```" + userStatsOP.operators[2].kd + "```", inline: true },
-                { name: "wins", value: "```" + userStatsOP.operators[2].wins + "```", inline: true },
-                { name: "losses", value: "```" + userStatsOP.operators[2].losses + "```", inline: true },
-                { name: "wl", value: "```" + userStatsOP.operators[2].wl + "```", inline: true },
-                { name: "headshots", value: "```" + userStatsOP.operators[2].headshots+ "```", inline: true },
-              )
-
-
-        ,
-        reactions: {
-          '⏪': "first",
-          '◀': 'previous', 
-          '▶': "next", 
-        }
-      },
 
 
 
@@ -164,5 +100,53 @@ module.exports = {
 
     ], 300000)
     helpMenu.start()
+   }
+   if(!operator){
+    let helpMenu1 = new Menu(message.channel, message.author.id, [
+      {
+       
+        name: 'Stats R6',
+        content: new MessageEmbed()
+          .setTitle('Your Stats  R6')
+          .setDescription('**Goblal Stats** 1️⃣ ')
+          .setColor('RANDOM')
+
+
+        ,
+        reactions: {
+          '1️⃣': "next",
+        }
+      },
+      {
+        name: 'Stats Goblal R6',
+        content: new MessageEmbed()
+          .setColor("RANDOM")
+          .setTitle(`Your  stats goblal in r6  ${message.author.username}`)
+          .setDescription(`**Username R6:** ${userStats.username} ` + "\n" +
+            `**Level R6:** ${userStats.progression.level} `)
+          .setThumbnail(userStats.avatar_url_256)
+          .addFields(
+            { name: "kills", value: "```" + userStats.stats.general.kills + "```", inline: true },
+            { name: "headshots", value: "```" + userStats.stats.general.headshots + "```", inline: true },
+            { name: "wins", value: "```" + userStats.stats.general.wins + "```", inline: true },
+            { name: "losses", value: "```" + userStats.stats.general.losses + "```", inline: true },
+            { name: "games played", value: "```" + userStats.stats.general.games_played + "```", inline: true },
+            { name: "kd", value: "```" + userStats.stats.general.kd + "```", inline: true },
+          )
+
+
+        ,
+        reactions: {
+          '⏪': "first",
+         
+
+        }
+      },
+      
+
+
+    ], 300000)
+    helpMenu1.start()
+   }
   }
 }
