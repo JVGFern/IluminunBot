@@ -42,14 +42,14 @@ module.exports = async (bot, message, guild) => {
         .setTitle(`Ola sou o Illumination`)
         .setDescription(`Se você me mencionou é porque esqueceu o prefixo ou é a minha primeira vez nesse Servidor`)
         .addFields(
-          { name: "Prefixo", value:  "```" + prefix + "```", inline: true },
-          { name: "Guilds", value: "```" + bot.guilds.cache.size + "```", inline: true},
-          { name: "Users", value:  "```" + bot.users.cache.size + "```", inline: true },
-          { name: "RAM usage", value:  "```" + ramUsage + "```", inline: true },
-          { name: "API Latency", value:  "```" + bot.ws.ping + "```", inline: true },
-          { name: "Para saber os comandos ou obeter ajuda use:", value:  "```" + `${prefix}help` + "```", inline: false},
-          { name: "Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version}, Mongoose: V${mongoose.version}` + "```", inline: false },
-          { name: "Uptime", value:  "```" + uptime + "```", inline: false },
+          { name: "#️⃣Prefixo", value:  "```" + prefix + "```", inline: true },
+          { name: "👩‍👩‍👧‍👧Guilds", value: "```" + bot.guilds.cache.size + "```", inline: true},
+          { name: "🙍Users", value:  "```" + bot.users.cache.size + "```", inline: true },
+          { name: "<:memory:810163895347445799>RAM usage", value:  "```" + ramUsage + "```", inline: true },
+          { name: "<:latency:810165883946532896>API Latency", value:  "```" + bot.ws.ping + "```", inline: true },
+          { name: "❓Para saber os comandos ou obeter ajuda use:", value:  "```" + `${prefix}help` + "```", inline: false},
+          { name: "🛠️Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version}, Mongoose: V${mongoose.version}` + "```", inline: false },
+          { name: "⏰Uptime", value:  "```" + uptime + "```", inline: false },
         )
         .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
