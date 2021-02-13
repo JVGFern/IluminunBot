@@ -16,10 +16,10 @@ module.exports = {
         .setColor('BLUE')
         .setThumbnail(member.user.displayAvatarURL({dynamic: true}))
         .setDescription(`❓<@${member.user.id}>` 
-         + "\n" +'**Usuário Tag:** ``' + `${member.user.tag}` + '``' 
-         + "\n" +'**Usuário Id** ``' + `${member.user.id}` + '``'
-         + "\n" +'**Conta criada em** ``' + `${moment(member.user.createdTimestamp).format('LLL')}` + '``'
-         + "\n" +'**Entrou aqui em** ``' + `${moment(member.joinedAt).format('LLL')}` + '``'
+         + "\n" +'**Usuário Tag: ** ' + `${member.user.tag}` + '' 
+         + "\n" +'**Usuário Id: ** ' + `${member.user.id}` + ''
+         + "\n" +'**Conta criada em: ** ' + `${moment(member.user.createdTimestamp).format('LLL')}` + ''
+         + "\n" +'**Entrou aqui em: ** ' + `${moment(member.joinedAt).format('LLL')}` + ''
 
          )
         .addFields(
