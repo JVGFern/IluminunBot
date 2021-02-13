@@ -48,7 +48,7 @@ module.exports = async (bot, message, guild) => {
           { name: "<:memory:810163895347445799>RAM usage", value:  "```" + ramUsage + "```", inline: true },
           { name: "<:latency:810165883946532896>API Latency", value:  "```" + bot.ws.ping + "```", inline: true },
           { name: "❓Para saber os comandos ou obeter ajuda use:", value:  "```" + `${prefix}help` + "```", inline: false},
-          { name: "🛠️Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version}, Mongoose: V${mongoose.version}` + "```", inline: false },
+          { name: "🛠️Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version},  V${mongoose.version}` + "```", inline: false },
           { name: "⏰Uptime", value:  "```" + uptime + "```", inline: false },
         )
         .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
