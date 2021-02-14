@@ -14,7 +14,7 @@ loadData()
 module.exports = {
     name: "set-welcome",
     category: "admin",
-    aliases: ['sw'],
+    aliases: ['sw', 'setw'],
     requiredPermissions: ['ADMINISTRATOR'], 
    
     run: async(bot, message, args ) => {
