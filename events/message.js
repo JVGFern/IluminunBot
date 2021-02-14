@@ -21,22 +21,10 @@ module.exports = async (bot, message, guild) => {
     prefix = "#";
   }
 
-  function convertMs(mills){
-    let roundNumber = mills > 0 ? Math.floor : Math.ceil;
-    let days = roundNumber(mills / 86400000),
-    hours = roundNumber(mills / 3600000) % 24,
-    mins = roundNumber(mills / 60000) % 60,
-    secs = roundNumber(mills / 1000) % 60;
-    var time = (days > 0) ? `${days} Days, ` : "";
-    time += (hours > 0) ? `${hours} Hours, ` : "";
-    time += (mins > 0) ? `${mins} Minutes, ` : "";
-    time += (secs > 0) ? `${secs} Seconds` : "0 Seconds";
-    return time;
-  }
 
-    let uptime = convertMs(message.client.uptime);
-    let ramUsage = (process.memoryUsage().heapTotal / 1024 / 1024).toFixed(2) + "MB";
-      
+    
+    if (message.content.startsWith(`<@${bot.user.id}>`) || message.content.startsWith(`<@!${bot.user.id}>`))   {
+      let ramUsage = (process.memoryUsage().heapTotal / 1024 / 1024).toFixed(2) + "MB";
       const embedBot = new Discord.MessageEmbed ()
       
         .setTitle(`Ola sou o Illumination`)
@@ -49,13 +37,14 @@ module.exports = async (bot, message, guild) => {
           { name: "<:latency:810165883946532896>API Latency", value:  "```" + bot.ws.ping + "```", inline: true },
           { name: "❓Para saber os comandos ou obeter ajuda use:", value:  "```" + `${prefix}help` + "```", inline: false},
           { name: "🛠️Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version},  V${mongoose.version}` + "```", inline: false },
-          { name: "⏰Uptime", value:  "```" + uptime + "```", inline: false },
+          
         )
         .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor('FF007F')
         
-    if (message.content.match(new RegExp(`^<@!?${bot.user.id}>( |)$`))) return message.channel.send(embedBot);
+     await message.channel.send(embedBot);
+    }
     if (!message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
