@@ -3,6 +3,7 @@ const prefixModel = require("../../models/prefix")
 module.exports = {
     name: "set-prefix",
     category: "admin",
+    aliases: ['st'],
    
     run: async(bot, message, args ) => {
         if(!message.member.hasPermission("MANAGE_MESSAGES"))
