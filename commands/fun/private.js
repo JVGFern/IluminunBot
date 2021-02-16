@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
-
-const channelExists = new Set()
 const CategorySchema = require('../../models/private-channel');
+const channelExists = new Set()
+
 
 module.exports = {
     name: "private",
@@ -68,7 +68,7 @@ module.exports = {
                         VIEW_CHANNEL: true,
                        // MANAGE_ROLES: true,
                         //MUTE_MEMBERS: true,
-                       // DEAFEN_MEMBERS: true
+                        DEAFEN_MEMBERS: true
                     })
 
                     // Starts the timer to delete the channel after 45 minutes

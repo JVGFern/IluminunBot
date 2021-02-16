@@ -6,7 +6,7 @@ const loadData = async () => {
 
   const results = await welcomeChannelSchema.find({})
   for (const result of results) {
-    cache.set(result.GuildID, result.ChannelID)
+    cache.set(result.GuildID, result.ChannelID, result.Text)
   }
 }
 loadData()
@@ -18,7 +18,7 @@ module.exports = {
     requiredPermissions: ['ADMINISTRATOR'], 
    
     run: async(bot, message, args ) => {
-       
+    const welcomeText = args.join(' ')
     const { guild, channel } = message
     await welcomeChannelSchema.findOneAndUpdate(
      
@@ -28,13 +28,14 @@ module.exports = {
     {
         GuildID: guild.id,
         ChannelID: channel.id,
+        Text: welcomeText,
     },
     {
         upsert: true,
       }
      
     )
-    cache.set(guild.id, channel.id)
+    cache.set(guild.id, channel.id,  welcomeText)
     message.reply('Welcome channel set!');
 
     },
@@ -43,3 +44,5 @@ module.exports = {
 module.exports.getChannelID = (GuildID) => {
     return cache.get(GuildID)
   }
+
+  

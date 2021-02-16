@@ -24,7 +24,7 @@ module.exports = async (bot, message, guild) => {
   
 
   if (message.content.startsWith(`<@${bot.user.id}>`) || message.content.startsWith(`<@!${bot.user.id}>`))   {
-    let ramUsage = (process.memoryUsage().heapTotal / 1024 / 1024).toFixed(2) + "MB";
+  
     const embedBot = new Discord.MessageEmbed ()
     
       .setTitle(`Ola sou o Illumination`)
@@ -33,11 +33,8 @@ module.exports = async (bot, message, guild) => {
         { name: "#️⃣Prefixo", value:  "```" + prefix + "```", inline: true },
         { name: "👩‍👩‍👧‍👧Guilds", value: "```" + bot.guilds.cache.size + "```", inline: true},
         { name: "🙍Users", value:  "```" + bot.users.cache.size + "```", inline: true },
-        { name: "<:memory:810163895347445799>RAM usage", value:  "```" + ramUsage + "```", inline: true },
-        { name: "<:latency:810165883946532896>API Latency", value:  "```" + bot.ws.ping + "```", inline: true },
         { name: "❓Para saber os comandos ou obeter ajuda use:", value:  "```" + `${prefix}help` + "```", inline: false},
-        { name: "🛠️Built using", value:  "```" + `Node.js: V${process.versions.node}, Discord.js: V${Discord.version}, Mongose V${mongoose.version}` + "```", inline: false },
-        
+       
       )
       .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
       .setTimestamp()

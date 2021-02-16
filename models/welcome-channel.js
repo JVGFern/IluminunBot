@@ -9,6 +9,11 @@ const welcomeSchema = new mongoose.Schema({
         type: String,
         required: true, 
     },
+    Text: {
+        type: String,
+        required: false, 
+    },
+
 });
 
 module.exports = mongoose.model('welcomechannel', welcomeSchema)
