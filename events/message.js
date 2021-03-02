@@ -1,12 +1,8 @@
-const mongoose = require('mongoose');
-const fs = require('fs');
+
 const Discord = require("discord.js");
-
-
-const config = require("../config.json");
 const PrefixSchema = require('../models/prefix');
 
-module.exports = async (bot, message, guild) => {
+module.exports = async (bot, message) => {
     let prefix;
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
@@ -41,7 +37,7 @@ module.exports = async (bot, message, guild) => {
       .setColor('FF007F')
       
        await message.channel.send(embedBot);
-      }
+    }
     if (!message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
